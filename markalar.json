@@ -2,31 +2,38 @@
   {
     "name": "Astopia",
     "status": "approved",
+    "type": "premium",
     "score": 90,
-    "image": "https://resim-urlsi.com/astopia.png",
-    "desc": "Yapay zeka ve astroloji birleşimi.",
-    "url": "https://tr.tabirly.com/astopia-incelemesi",
+    "image": "https://blogger.googleusercontent.com/img/b/.../astopia-logo.png",
+    "desc": "NASA verileri ve astrolojik öngörülerin detaylı analizi.",
+    "url": "https://tr.tabirly.com/astopia-incelemesi.html",
     "isEditorChoice": true,
-    "reason": ""
+    "tags": ["#SPIRITECH", "#YAPAYZEKA"],
+    "category": "Teknoloji"
   },
   {
-    "name": "Kötü Şirket X",
+    "name": "Örnek Alt Liste Markası",
+    "status": "approved",
+    "type": "compact",
+    "score": 75,
+    "image": "https://url-to-logo.png",
+    "desc": "",
+    "url": "https://link.html",
+    "isEditorChoice": false,
+    "tags": [],
+    "category": "Danışmanlık"
+  },
+  {
+    "name": "Reddedilen Şirket X",
     "status": "rejected",
+    "type": "compact",
     "score": 0,
     "image": "",
     "desc": "",
     "url": "#",
     "isEditorChoice": false,
-    "reason": "Etik dışı satış politikası saptandı."
+    "reason": "Etik dışı pazarlama yöntemleri.",
+    "tags": [],
+    "category": "Hizmet"
   }
 ]
-
-4.  **Raw Linkini Al:** GitHub'da `markalar.json` dosyasına tıkla. Sağ üstteki **"Raw"** butonuna bas. Tarayıcı adres çubuğundaki URL'yi kopyala.
-5.  **Koda Yapıştır:** HTML kodundaki `const DATA_URL = '...'` kısmına o kopyaladığın linki yapıştır.
-
-### Bu Sistemin Avantajı Nedir?
-* Artık markaları eklemek için **Blogger'ın içine girip kodla uğraşmana gerek yok.**
-* Sadece GitHub'daki `json` dosyasına yeni bir satır eklersen, siten otomatik olarak güncellenir.
-* Site çok daha hızlı yüklenir çünkü binlerce satır kod yerine sadece küçük bir metin dosyasını okur.
-
-Bu kurulumda takıldığın bir yer olursa hemen sor, birlikte çözelim!
