@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Astopia",
+    "status": "approved",
+    "score": 90,
+    "image": "https://resim-urlsi.com/astopia.png",
+    "desc": "Yapay zeka ve astroloji birleşimi.",
+    "url": "https://tr.tabirly.com/astopia-incelemesi",
+    "isEditorChoice": true,
+    "reason": ""
+  },
+  {
+    "name": "Kötü Şirket X",
+    "status": "rejected",
+    "score": 0,
+    "image": "",
+    "desc": "",
+    "url": "#",
+    "isEditorChoice": false,
+    "reason": "Etik dışı satış politikası saptandı."
+  }
+]
+
+4.  **Raw Linkini Al:** GitHub'da `markalar.json` dosyasına tıkla. Sağ üstteki **"Raw"** butonuna bas. Tarayıcı adres çubuğundaki URL'yi kopyala.
+5.  **Koda Yapıştır:** HTML kodundaki `const DATA_URL = '...'` kısmına o kopyaladığın linki yapıştır.
+
+### Bu Sistemin Avantajı Nedir?
+* Artık markaları eklemek için **Blogger'ın içine girip kodla uğraşmana gerek yok.**
+* Sadece GitHub'daki `json` dosyasına yeni bir satır eklersen, siten otomatik olarak güncellenir.
+* Site çok daha hızlı yüklenir çünkü binlerce satır kod yerine sadece küçük bir metin dosyasını okur.
+
+Bu kurulumda takıldığın bir yer olursa hemen sor, birlikte çözelim!
