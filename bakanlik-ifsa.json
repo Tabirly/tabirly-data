@@ -37,5 +37,18 @@
   {"id": "o7", "name": "Mutlukovan", "desc": "Taklit ve Tağşiş tespiti.", "tags": ["Geçmiş Liste"], "category": "Bal", "status": "blacklisted"},
   {"id": "o8", "name": "Bal Deposu", "desc": "Taklit ve Tağşiş tespiti.", "tags": ["Geçmiş Liste"], "category": "Bal", "status": "blacklisted"},
   {"id": "o9", "name": "Haskaymak", "desc": "Taklit ve Tağşiş tespiti.", "tags": ["Geçmiş Liste"], "category": "Bal", "status": "blacklisted"},
-  {"id": "o10", "name": "Ecegün", "desc": "Taklit ve Tağşiş tespiti.", "tags": ["Geçmiş Liste"], "category": "Bal", "status": "blacklisted"}
+  {"id": "o10", "name": "Ecegün", "desc": "Taklit ve Tağşiş tespiti.", "tags": ["Geçmiş Liste"], "category": "Bal", "status": "blacklisted"},
+  {"id": "s1", "name": "Kamaş", "desc": "Ürün: Sumak-1 KG | Üretici: KAMAŞ GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ | İhlal: Gıda Boyası Tespiti", "tags": ["Antalya", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s2", "name": "Buldular Baharat", "desc": "Ürün: Çok Acı Pul Biber | Üretici: BULDULAR BAHARAT BAKLİYAT... | İhlal: Domates Tespiti", "tags": ["Kahramanmaraş", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s3", "name": "Vafi", "desc": "Ürün: Acı Toz Biber | Üretici: TUFAN FOOD BAHARAT... | İhlal: Domates Tespiti", "tags": ["Sakarya", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s4", "name": "Maksimum Baharat", "desc": "Ürün: Kekik | Üretici: MAKSİMUM BAHARAT... | İhlal: Yabancı Madde Tespiti", "tags": ["İstanbul", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s5", "name": "Bir Baharat", "desc": "Ürün: Pul Biber | Üretici: DND KURUMSAL GIDA... | İhlal: Domates Tespiti, Taklit/Tağşiş Gösteren Nişasta Tespiti", "tags": ["İstanbul", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s6", "name": "Nartaşım Baharat", "desc": "Ürün: Pul Kırmızı Biber | Üretici: MEHMET NAR | İhlal: Domates Tespiti", "tags": ["Kahramanmaraş", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s7", "name": "ST Baharatçım", "desc": "Ürün: Pul Kırmızı Biber | Üretici: KAHRAMAN MARAŞ BAHARAT GIDA-ADEM TERLİK | İhlal: Domates Tespiti, İzin Verilmeyen Boya", "tags": ["Kahramanmaraş", "Baharat", "Çoklu İhlal"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s8", "name": "ST Baharatçım", "desc": "Ürün: Toz Kırmızıbiber | Üretici: KAHRAMAN MARAŞ BAHARAT GIDA-ADEM TERLİK | İhlal: Domates Tespiti", "tags": ["Kahramanmaraş", "Baharat", "Çoklu İhlal"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s9", "name": "Buldular", "desc": "Ürün: Pul Kırmızı Biber | Üretici: BULDULAR BAHARAT BAKLİYAT... | İhlal: Domates Tespiti", "tags": ["Kahramanmaraş", "Baharat", "Çoklu İhlal"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s10", "name": "Narbi", "desc": "Ürün: Pul Kırmızı Biber | Üretici: SADULLAH NAR | İhlal: Domates Tespiti", "tags": ["Kahramanmaraş", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s11", "name": "Özden Değirmenci (Markasız)", "desc": "Ürün: Sumak | Üretici: ÖZDEN DEĞİRMENCİ | İhlal: Gıda Boyası Tespiti", "tags": ["Gaziantep", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s12", "name": "Erkan Egemen", "desc": "Ürün: Pul Biber | Üretici: ERKAN EGEMEN BAHARATLARI | İhlal: Domates Tespiti, Nişasta Tespiti", "tags": ["İstanbul", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"},
+  {"id": "s13", "name": "By Aktar", "desc": "Ürün: Kekik | Üretici: DEFNE BAHARAT-EYÜP ILGAZ | İhlal: Yabancı Madde Tespiti", "tags": ["İstanbul", "Baharat"], "category": "Baharat ve Sos", "status": "blacklisted"}
 ]
