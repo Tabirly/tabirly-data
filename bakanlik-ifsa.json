@@ -1,0 +1,122 @@
+[
+    {
+        "id": "b1",
+        "name": "Abalı",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b2",
+        "name": "Happy Life",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b3",
+        "name": "Gürlevik Erzincan",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b4",
+        "name": "Bal Cenneti",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted",
+        "tags": ["Erzincan"]
+    },
+    {
+        "id": "b5",
+        "name": "Anzer Balcısı",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b6",
+        "name": "Otantik",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b7",
+        "name": "Gayem",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b8",
+        "name": "Pervari",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b9",
+        "name": "Mutlukovan",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b10",
+        "name": "Bal Deposu",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b11",
+        "name": "Haskaymak",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b12",
+        "name": "Ecegün",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b13",
+        "name": "Nur Ceylan Erzincan",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b14",
+        "name": "Ertuğrul",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b15",
+        "name": "Saf Doğadan Bitlis",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b16",
+        "name": "Koru Bal",
+        "desc": "Taklit ve Tağşiş: Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    },
+    {
+        "id": "b17",
+        "name": "Oma Maden Petrol Turizm",
+        "desc": "Taklit ve Tağşiş: Etiketsiz çam balı satışı. Fruktoz, glikoz şurubu veya doğasında olmayan bileşenler tespit edildi.",
+        "category": "Bal",
+        "status": "blacklisted"
+    }
+]
