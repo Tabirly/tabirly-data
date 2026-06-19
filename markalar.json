@@ -24,6 +24,18 @@
     "category": "Tıbbi Mantarlar"
   },
   {
+    "name": "İksirli Çiftlik",
+    "status": "approved",
+    "type": "compact",
+    "score": 81,
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7zoDCICvq5Fk2upwCEeV7e9x8JfEnh_J6X08r3Kj_wGpNmr0OpxIUDkGmEYVq-FgECtkKizTNNsJFZaptBfbBJFC88ACL_YAK8QAQJpZHWHwQShvLSh4BZV0qzNQqy9bdWF5sIcewVxXSyNV3npPEgKWvH8e7tls-GJXruhkI10qt_cYbQ3K0gBuadGM/s320/iksirli-ciftlik-logo.png",
+    "desc": "Kastamonu Daday'ın vahşi hasat enerjisi, atalık siyez buğdayı ve matriarkal üretim.",
+    "url": "https://tr.tabirly.com/2026/06/iksirli-ciftlik-ezoterik-inceleme-ve-siyez.html",
+    "isEditorChoice": true,
+    "tags": ["#SİYEZ", "#MATRİARKALTARIM", "#DOĞALYAŞAM"],
+    "category": "Gıda"
+  },
+  {
     "name": "Reddedilen Şirket X",
     "status": "rejected",
     "type": "compact",
