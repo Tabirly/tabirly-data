@@ -36,6 +36,18 @@
     "category": "Gıda"
   },
   {
+    "name": "Melez Tea",
+    "status": "approved",
+    "type": "compact",
+    "score": 87,
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX-CoUan-XDhwIPSfYQ6Yn-HmRf-jqlOeH5kkclUq_FAJgVS91wa7F5cNMbgBH8DFDE0YhP_39d0TA5b3BbPuc37tms2NIqv0xSKiSzcFkuic6xmdn0Mvz5fDMcYIadmuX47C9OzzZ78PRHHF9z1u1IiKQ6lRk1Tqx0Ees8uKqStRUNjqFyxWBK1k-Gvg/s320/melez-tea-logo.png",
+    "desc": "Çayı salt bir içecek olmaktan çıkarıp Zodyak astrolojisi, ses frekansları ve matriarkal şifa ritüeline dönüştüren konsept.",
+    "url": "https://tr.tabirly.com/2026/06/melez-tea-incelemesi.html",
+    "isEditorChoice": false,
+    "tags": ["#ZODYAK", "#SESFREKANSLARI", "#RİTÜEL"],
+    "category": "İçecek"
+  },
+  {
     "name": "Reddedilen Şirket X",
     "status": "rejected",
     "type": "compact",
