@@ -49,6 +49,18 @@
     "category": "İçecek"
   },
   {
+    "name": "Pastoral Vadi",
+    "status": "approved",
+    "type": "compact",
+    "score": 75,
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjERkkJAKQOqvpnazrUI1EoeaduRUfOkGI-yghdLVLe2GZAJM5fNr2Ek8eFvcBnZfTUPtymUbmCJCWrCDRJ9A7xcvwzixj8koxP-BZ6uo4p2VBtvR7kHJ9VVOg3ufcamhmIt6_UJotxAuTnwJFJ8rjO5-eepesPwtAMGNKcqhF_nGtL8oXNmsNuRtRlpUc/w600-rw/pastoral-vadi-logo.png",
+    "desc": "Fethiye'deki bu ekolojik yaşam çiftliği; kerpiç mimarisi, TaTuTa gönüllülüğü ve imece kültürü ile dikkat çekiyor.",
+    "url": "https://tr.tabirly.com/2026/06/pastoral-vadi-ekolojik-yasam-ciftligi-incelemesi.html",
+    "isEditorChoice": false,
+    "tags": ["#EKOLOJİ", "#TATUTA", "#İMECE"],
+    "category": "Ekoloji"
+  },
+  {
     "name": "Reddedilen Şirket X",
     "status": "rejected",
     "type": "compact",
