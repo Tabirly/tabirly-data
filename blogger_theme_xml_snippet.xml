@@ -1,42 +1,54 @@
 <!-- ==================================================================== -->
-<!-- BLOGGER TEMA (XML TEMPLATE) İÇİN KESİNTİSİZ TEK KOD YÖNTEMİ         -->
-<!-- Bu kod XML yapısını BOZMAZ. </body> etiketinin HEMEN ÜSTÜNE ekleyin. -->
+<!-- TABİRLY TAM UYUMLU CANLI ARAMA WİDGET'I                               -->
 <!-- ==================================================================== -->
 
+<!-- 1. ARAMA KUTUSU VE SONUÇ ALANI -->
+<div class='tabirly-search-container'>
+  <div class='tabirly-search-box'>
+    <span class='search-icon-symbol'>&#128269;</span>
+    <input autocomplete='off' id='tabirlySearchInput' placeholder='8.000+ tabir ve başlık içinde arayın...' type='text'/>
+    <button class='search-clear-btn' id='tabirlySearchClear' style='display:none;' type='button'>&#215;</button>
+  </div>
+  
+  <div class='tabirly-search-results' id='tabirlySearchResults' style='display:none;'>
+    <div class='search-header'><span id='searchStatusText'>Sonuçlar</span></div>
+    <div class='search-results-list' id='searchResultsList'></div>
+  </div>
+</div>
+
+<!-- 2. STİLLER -->
+<style type='text/css'>
+/*<![CDATA[*/
+  .tabirly-search-container { position: relative; width: 100%; max-width: 650px; margin: 15px auto; font-family: 'Outfit', -apple-system, sans-serif; z-index: 99999; }
+  .tabirly-search-box { display: flex; align-items: center; background: #FFFFFF; border: 2px solid #EAE5D9; border-radius: 12px; padding: 10px 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+  .tabirly-search-box:focus-within { border-color: #C5A059; box-shadow: 0 4px 20px rgba(197, 160, 89, 0.25); }
+  .search-icon-symbol { font-size: 18px; margin-right: 12px; opacity: 0.7; }
+  .tabirly-search-box input { width: 100% !important; border: none !important; outline: none !important; font-size: 16px !important; color: #2A3B32 !important; background: transparent !important; box-shadow: none !important; padding: 4px 0 !important; margin: 0 !important; }
+  .tabirly-search-box input::placeholder { color: #94a3b8; }
+  .search-clear-btn { background: none; border: none; font-size: 22px; color: #94a3b8; cursor: pointer; padding: 0 4px; line-height: 1; display: none; }
+  .search-clear-btn:hover { color: #2A3B32; }
+  .tabirly-search-results { position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: #FFFFFF; border: 1px solid #EAE5D9; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-height: 480px; overflow-y: auto; z-index: 999999; }
+  .search-header { padding: 10px 16px; background: #FDFBF7; border-bottom: 1px solid #EAE5D9; font-size: 13px; font-weight: 600; color: #5A6B62; }
+  .search-results-list { padding: 6px 0; }
+  .search-item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none !important; color: #2A3B32 !important; border-bottom: 1px solid #f1f5f9; transition: background 0.2s ease; }
+  .search-item:last-child { border-bottom: none; }
+  .search-item:hover { background: #FDFBF7 !important; }
+  .search-item img { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; margin-right: 12px; background: #f1f5f9; flex-shrink: 0; }
+  .search-item-info { flex: 1; overflow: hidden; }
+  .search-item-title { font-size: 15px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #2A3B32; }
+  .search-item-title mark { background: rgba(197, 160, 89, 0.3); color: #2A3B32; font-weight: 700; border-radius: 2px; padding: 0 2px; }
+  .search-item-cat { font-size: 12px; color: #C5A059; font-weight: 600; margin-top: 2px; }
+  .search-no-results { padding: 20px; text-align: center; color: #64748b; font-size: 14px; }
+/*]]>*/
+</style>
+
+<!-- 3. JAVASCRIPT -->
 <script type='text/javascript'>
 //<![CDATA[
 (function() {
-  // 1. STİLLERİ DİNAMİK OLARAK SAYFAYA EKLE
-  const css = `
-    .tabirly-search-container { position: relative; width: 100%; max-width: 650px; margin: 10px auto; font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; z-index: 99999; }
-    .tabirly-search-box { display: flex; align-items: center; background: #FFFFFF; border: 2px solid #EAE5D9; border-radius: 12px; padding: 8px 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; }
-    .tabirly-search-box:focus-within { border-color: #C5A059; box-shadow: 0 4px 20px rgba(197, 160, 89, 0.25); }
-    .search-icon-symbol { font-size: 18px; margin-right: 12px; opacity: 0.7; }
-    .tabirly-search-box input { width: 100% !important; border: none !important; outline: none !important; font-size: 16px !important; color: #2A3B32 !important; background: transparent !important; box-shadow: none !important; padding: 4px 0 !important; margin: 0 !important; }
-    .tabirly-search-box input::placeholder { color: #94a3b8; }
-    .search-clear-btn { background: none; border: none; font-size: 22px; color: #94a3b8; cursor: pointer; padding: 0 4px; line-height: 1; display: none; }
-    .search-clear-btn:hover { color: #2A3B32; }
-    .tabirly-search-results { position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: #FFFFFF; border: 1px solid #EAE5D9; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-height: 480px; overflow-y: auto; z-index: 999999; display: none; }
-    .search-header { padding: 10px 16px; background: #FDFBF7; border-bottom: 1px solid #EAE5D9; font-size: 13px; font-weight: 600; color: #5A6B62; }
-    .search-results-list { padding: 6px 0; }
-    .search-item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none !important; color: #2A3B32 !important; border-bottom: 1px solid #f1f5f9; transition: background 0.2s ease; }
-    .search-item:last-child { border-bottom: none; }
-    .search-item:hover { background: #FDFBF7 !important; }
-    .search-item img { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; margin-right: 12px; background: #f1f5f9; flex-shrink: 0; }
-    .search-item-info { flex: 1; overflow: hidden; }
-    .search-item-title { font-size: 15px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #2A3B32; }
-    .search-item-title mark { background: rgba(197, 160, 89, 0.3); color: #2A3B32; font-weight: 700; border-radius: 2px; padding: 0 2px; }
-    .search-item-cat { font-size: 12px; color: #C5A059; font-weight: 600; margin-top: 2px; }
-    .search-no-results { padding: 20px; text-align: center; color: #64748b; font-size: 14px; }
-  `;
-  const styleEl = document.createElement("style");
-  styleEl.type = "text/css";
-  styleEl.appendChild(document.createTextNode(css));
-  document.head.appendChild(styleEl);
-
-  // 2. ARAMA İNDEKSİ VE MİMARİ
   const PRIMARY_URL = "https://cdn.jsdelivr.net/gh/Tabirly/tabirly-data@main/search-index.json";
   const FALLBACK_URL = "https://raw.githubusercontent.com/Tabirly/tabirly-data/main/search-index.json";
+  
   let searchData = [];
   let isLoaded = false;
   let isLoading = false;
@@ -68,42 +80,7 @@
     }
   }
 
-  function initSearchUI() {
-    let targetContainer = document.getElementById("tabirly-search-target");
-    
-    // Eğer özel hedef yoksa arama çubuğunu otomatik oluştur
-    const searchHTML = `
-      <div class="tabirly-search-container">
-        <div class="tabirly-search-box">
-          <span class="search-icon-symbol">&#128269;</span>
-          <input type="text" id="tabirlySearchInput" placeholder="8.000+ tabir ve başlık içinde arayın..." autocomplete="off" />
-          <button type="button" id="tabirlySearchClear" class="search-clear-btn">&times;</button>
-        </div>
-        <div id="tabirlySearchResults" class="tabirly-search-results">
-          <div class="search-header"><span id="searchStatusText">Sonuçlar</span></div>
-          <div id="searchResultsList" class="search-results-list"></div>
-        </div>
-      </div>
-    `;
-
-    if (targetContainer) {
-      targetContainer.innerHTML = searchHTML;
-    } else {
-      // Eğer hedef ID yoksa, sayfa üstüne veya yerleştirildiği yere bas
-      const scriptTag = document.currentScript;
-      const divWrapper = document.createElement("div");
-      divWrapper.innerHTML = searchHTML;
-      if (scriptTag && scriptTag.parentNode) {
-        scriptTag.parentNode.insertBefore(divWrapper, scriptTag);
-      } else {
-        document.body.appendChild(divWrapper);
-      }
-    }
-
-    bindSearchEvents();
-  }
-
-  function bindSearchEvents() {
+  function initSearch() {
     const searchInput = document.getElementById("tabirlySearchInput");
     const clearBtn = document.getElementById("tabirlySearchClear");
     const resultsContainer = document.getElementById("tabirlySearchResults");
@@ -214,9 +191,9 @@
   }
 
   if (document.readyState === "complete" || document.readyState === "interactive") {
-    initSearchUI();
+    initSearch();
   } else {
-    document.addEventListener("DOMContentLoaded", initSearchUI);
+    document.addEventListener("DOMContentLoaded", initSearch);
   }
 })();
 //]]>
