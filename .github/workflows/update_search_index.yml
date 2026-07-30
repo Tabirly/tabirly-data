@@ -1,0 +1,38 @@
+name: Auto Update Search Index
+
+on:
+  schedule:
+    # Run every night at 03:00 UTC
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build Search Index
+        run: python build_search_index.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "Tabirly Auto Bot"
+          git config --global user.email "bot@tabirly.com"
+          git add search-index.json
+          git status
+          if git diff --staged --quiet; then
+            echo "No changes in search index."
+          else
+            git commit -m "Auto-update search index [skip ci]"
+            git push
+          fi
