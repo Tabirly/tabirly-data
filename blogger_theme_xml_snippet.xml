@@ -15,11 +15,11 @@
     <div class='search-header'>
       <span id='searchStatusText'>Sonuçlar</span>
     </div>
-    <div class='search-results-list' id='searchResultsList'/>
+    <div class='search-results-list' id='searchResultsList'></div>
   </div>
 </div>
 
-<!-- 2. STİLLER -->
+<!-- 2. STİLLER (Blogger CDATA Sarmallı) -->
 <style type='text/css'>
 /*<![CDATA[*/
   .tabirly-search-container {
@@ -177,7 +177,7 @@
 /*]]>*/
 </style>
 
-<!-- 3. JAVASCRIPT (DOM Ready + Fallback URL + Türkçe Uyumluluk) -->
+<!-- 3. JAVASCRIPT -->
 <script type='text/javascript'>
 //<![CDATA[
 (function() {
@@ -235,7 +235,6 @@
 
     if (!searchInput) return;
 
-    // Sayfa açılır açılmaz veya odağa alınınca veriyi indir
     loadSearchIndex();
     searchInput.addEventListener("focus", loadSearchIndex);
 
