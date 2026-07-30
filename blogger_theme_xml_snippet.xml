@@ -5,7 +5,7 @@
 <!-- 1. ARAMA KUTUSU VE SONUÇ ALANI -->
 <div class='tabirly-search-container'>
   <div class='tabirly-search-box'>
-    <i class='fa-solid fa-magnifying-glass search-icon'/>
+    <span class='search-icon-symbol'>&#128269;</span>
     <input autocomplete='off' id='tabirlySearchInput' placeholder='8.000+ tabir ve başlık içinde arayın...' type='text'/>
     <button class='search-clear-btn' id='tabirlySearchClear' style='display:none;' type='button'>&#215;</button>
   </div>
@@ -19,16 +19,16 @@
   </div>
 </div>
 
-<!-- 2. STİLLER (Blogger CDATA Sarmallı) -->
+<!-- 2. STİLLER -->
 <style type='text/css'>
 /*<![CDATA[*/
   .tabirly-search-container {
     position: relative;
     width: 100%;
     max-width: 650px;
-    margin: 0 auto;
-    font-family: 'Outfit', sans-serif;
-    z-index: 9999;
+    margin: 10px auto;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    z-index: 99999;
   }
 
   .tabirly-search-box {
@@ -47,20 +47,22 @@
     box-shadow: 0 4px 20px rgba(197, 160, 89, 0.25);
   }
 
-  .tabirly-search-box .search-icon {
-    color: #C5A059;
+  .search-icon-symbol {
     font-size: 18px;
     margin-right: 12px;
+    opacity: 0.7;
   }
 
   .tabirly-search-box input {
     width: 100%;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: #2A3B32;
-    background: transparent;
-    font-family: inherit;
+    border: none !important;
+    outline: none !important;
+    font-size: 16px !important;
+    color: #2A3B32 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 4px 0 !important;
+    margin: 0 !important;
   }
 
   .tabirly-search-box input::placeholder {
@@ -81,7 +83,7 @@
     color: #2A3B32;
   }
 
-  /* SONUÇ LİSTESİ */
+  /* SONUÇ LİSTESİ PANELİ */
   .tabirly-search-results {
     position: absolute;
     top: calc(100% + 8px);
@@ -90,15 +92,10 @@
     background: #FFFFFF;
     border: 1px solid #EAE5D9;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     max-height: 480px;
     overflow-y: auto;
-    animation: tabirlyFadeIn 0.2s ease-in-out;
-  }
-
-  @keyframes tabirlyFadeIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
+    z-index: 999999;
   }
 
   .search-header {
@@ -117,9 +114,9 @@
   .search-item {
     display: flex;
     align-items: center;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: #2A3B32;
+    padding: 12px 16px;
+    text-decoration: none !important;
+    color: #2A3B32 !important;
     border-bottom: 1px solid #f1f5f9;
     transition: background 0.2s ease;
   }
@@ -129,7 +126,7 @@
   }
 
   .search-item:hover {
-    background: #FDFBF7;
+    background: #FDFBF7 !important;
   }
 
   .search-item img {
@@ -139,6 +136,7 @@
     object-fit: cover;
     margin-right: 12px;
     background: #f1f5f9;
+    flex-shrink: 0;
   }
 
   .search-item-info {
@@ -156,7 +154,7 @@
   }
 
   .search-item-title mark {
-    background: rgba(197, 160, 89, 0.25);
+    background: rgba(197, 160, 89, 0.3);
     color: #2A3B32;
     font-weight: 700;
     border-radius: 2px;
@@ -179,80 +177,107 @@
 /*]]>*/
 </style>
 
-<!-- 3. JAVASCRIPT (Blogger CDATA Sarmallı) -->
+<!-- 3. JAVASCRIPT (DOM Ready + Fallback URL + Türkçe Uyumluluk) -->
 <script type='text/javascript'>
 //<![CDATA[
 (function() {
-  const INDEX_URL = "https://cdn.jsdelivr.net/gh/Tabirly/tabirly-data@main/search-index.json";
+  const PRIMARY_URL = "https://cdn.jsdelivr.net/gh/Tabirly/tabirly-data@main/search-index.json";
+  const FALLBACK_URL = "https://raw.githubusercontent.com/Tabirly/tabirly-data/main/search-index.json";
+  
   let searchData = [];
   let isLoaded = false;
   let isLoading = false;
 
-  const searchInput = document.getElementById("tabirlySearchInput");
-  const clearBtn = document.getElementById("tabirlySearchClear");
-  const resultsContainer = document.getElementById("tabirlySearchResults");
-  const resultsList = document.getElementById("searchResultsList");
-  const statusText = document.getElementById("searchStatusText");
-
-  if (!searchInput) return;
-
   function normalizeTR(text) {
     if (!text) return "";
-    return text.toString().toLowerCase()
+    return text.toString()
+      .replace(/İ/g, "i")
+      .replace(/I/g, "ı")
+      .toLowerCase()
       .replace(/ğ/g, "g")
       .replace(/ü/g, "u")
       .replace(/ş/g, "s")
       .replace(/ı/g, "i")
       .replace(/ö/g, "o")
-      .replace(/ç/g, "c")
-      .replace(/İ/g, "i")
-      .replace(/I/g, "i");
+      .replace(/ç/g, "c");
   }
 
   async function loadSearchIndex() {
     if (isLoaded || isLoading) return;
     isLoading = true;
+
     try {
-      const res = await fetch(INDEX_URL);
+      let res = await fetch(PRIMARY_URL);
+      if (!res.ok) res = await fetch(FALLBACK_URL);
       searchData = await res.json();
       isLoaded = true;
       isLoading = false;
+      console.log("Tabirly Arama: " + searchData.length + " yazı yüklendi.");
     } catch (err) {
-      console.error("Arama verisi yüklenemedi:", err);
+      console.error("Tabirly Arama yükleme hatası:", err);
+      try {
+        let res2 = await fetch(FALLBACK_URL);
+        searchData = await res2.json();
+        isLoaded = true;
+      } catch(e) {
+        console.error("Fallback da başarısız oldu:", e);
+      }
       isLoading = false;
     }
   }
 
-  searchInput.addEventListener("focus", loadSearchIndex);
+  function initSearch() {
+    const searchInput = document.getElementById("tabirlySearchInput");
+    const clearBtn = document.getElementById("tabirlySearchClear");
+    const resultsContainer = document.getElementById("tabirlySearchResults");
+    const resultsList = document.getElementById("searchResultsList");
+    const statusText = document.getElementById("searchStatusText");
 
-  let debounceTimer;
-  searchInput.addEventListener("input", function() {
-    const query = this.value.trim();
-    clearBtn.style.display = query ? "block" : "none";
+    if (!searchInput) return;
 
-    if (!query) {
-      resultsContainer.style.display = "none";
-      return;
+    // Sayfa açılır açılmaz veya odağa alınınca veriyi indir
+    loadSearchIndex();
+    searchInput.addEventListener("focus", loadSearchIndex);
+
+    let debounceTimer;
+    searchInput.addEventListener("input", function() {
+      const query = this.value.trim();
+      if (clearBtn) clearBtn.style.display = query ? "block" : "none";
+
+      if (!query) {
+        if (resultsContainer) resultsContainer.style.display = "none";
+        return;
+      }
+
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        performSearch(query, searchInput, resultsContainer, resultsList, statusText);
+      }, 100);
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function() {
+        searchInput.value = "";
+        clearBtn.style.display = "none";
+        if (resultsContainer) resultsContainer.style.display = "none";
+        searchInput.focus();
+      });
     }
 
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      performSearch(query);
-    }, 150);
-  });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".tabirly-search-container")) {
+        if (resultsContainer) resultsContainer.style.display = "none";
+      }
+    });
+  }
 
-  clearBtn.addEventListener("click", function() {
-    searchInput.value = "";
-    clearBtn.style.display = "none";
-    resultsContainer.style.display = "none";
-    searchInput.focus();
-  });
+  function performSearch(query, searchInput, resultsContainer, resultsList, statusText) {
+    if (!resultsContainer || !resultsList) return;
 
-  function performSearch(query) {
     if (!isLoaded) {
       resultsContainer.style.display = "block";
-      resultsList.innerHTML = '<div class="search-no-results">Arama indeksi yükleniyor...</div>';
-      loadSearchIndex().then(() => performSearch(query));
+      resultsList.innerHTML = '<div class="search-no-results">Arama indeksi yükleniyor, lütfen 1 sn bekleyin...</div>';
+      loadSearchIndex().then(() => performSearch(query, searchInput, resultsContainer, resultsList, statusText));
       return;
     }
 
@@ -268,18 +293,20 @@
 
       if (isMatch) {
         matches.push(item);
-        if (matches.length >= 25) break;
+        if (matches.length >= 30) break;
       }
     }
 
-    renderResults(matches, query);
+    renderResults(matches, query, resultsContainer, resultsList, statusText);
   }
 
-  function renderResults(results, rawQuery) {
+  function renderResults(results, rawQuery, resultsContainer, resultsList, statusText) {
     resultsContainer.style.display = "block";
-    statusText.textContent = results.length > 0 
-      ? results.length + " sonuç gösteriliyor" 
-      : "Sonuç bulunamadı";
+    if (statusText) {
+      statusText.textContent = results.length > 0 
+        ? results.length + " sonuç bulundu" 
+        : "Sonuç bulunamadı";
+    }
 
     if (results.length === 0) {
       resultsList.innerHTML = '<div class="search-no-results">"<b>' + escapeHTML(rawQuery) + '</b>" ile ilgili sonuç bulunamadı.</div>';
@@ -291,7 +318,7 @@
 
     let html = "";
     results.forEach(item => {
-      const imgTag = item.i ? '<img src="' + item.i + '" alt="' + escapeHTML(item.t) + '" loading="lazy"/>' : '<div style="width:44px;height:44px;background:#f1f5f9;border-radius:8px;margin-right:12px;"></div>';
+      const imgTag = item.i ? '<img src="' + item.i + '" alt="' + escapeHTML(item.t) + '" loading="lazy"/>' : '<div style="width:44px;height:44px;background:#f1f5f9;border-radius:8px;margin-right:12px;flex-shrink:0;"></div>';
       const categoryTag = item.c ? '<div class="search-item-cat">' + escapeHTML(item.c) + '</div>' : "";
       
       const highlightedTitle = escapeHTML(item.t).replace(regex, '<mark>$1</mark>');
@@ -314,11 +341,11 @@
     });
   }
 
-  document.addEventListener("click", function(e) {
-    if (!e.target.closest(".tabirly-search-container")) {
-      resultsContainer.style.display = "none";
-    }
-  });
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    initSearch();
+  } else {
+    document.addEventListener("DOMContentLoaded", initSearch);
+  }
 })();
 //]]>
 </script>
