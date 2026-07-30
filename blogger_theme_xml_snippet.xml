@@ -1,14 +1,13 @@
 <!-- ==================================================================== -->
-<!-- BLOGGER ANA TEMA (XML TEMPLATE) İÇİN CANLI ARAMA KODU                -->
-<!-- Kullanım: Tema > HTML'i Düzenle adımlarından istediğiniz yere yapıştırın -->
+<!-- BLOGGER TEMA (XML TEMPLATE) İÇİN %100 UYUMLU CANLI ARAMA WİDGET'I     -->
 <!-- ==================================================================== -->
 
 <!-- 1. ARAMA KUTUSU VE SONUÇ ALANI -->
 <div class='tabirly-search-container'>
   <div class='tabirly-search-box'>
-    <i class='fa-solid fa-magnifying-glass search-icon'></i>
+    <i class='fa-solid fa-magnifying-glass search-icon'/>
     <input autocomplete='off' id='tabirlySearchInput' placeholder='8.000+ tabir ve başlık içinde arayın...' type='text'/>
-    <button class='search-clear-btn' id='tabirlySearchClear' style='display:none;' type='button'>&amp;times;</button>
+    <button class='search-clear-btn' id='tabirlySearchClear' style='display:none;' type='button'>&#215;</button>
   </div>
   
   <!-- Arama Sonuçları Paneli -->
@@ -16,12 +15,13 @@
     <div class='search-header'>
       <span id='searchStatusText'>Sonuçlar</span>
     </div>
-    <div class='search-results-list' id='searchResultsList'></div>
+    <div class='search-results-list' id='searchResultsList'/>
   </div>
 </div>
 
-<!-- 2. STİLLER -->
+<!-- 2. STİLLER (Blogger CDATA Sarmallı) -->
 <style type='text/css'>
+/*<![CDATA[*/
   .tabirly-search-container {
     position: relative;
     width: 100%;
@@ -176,9 +176,10 @@
     color: #64748b;
     font-size: 14px;
   }
+/*]]>*/
 </style>
 
-<!-- 3. JAVASCRIPT (Blogger CDATA XML Uyumlu) -->
+<!-- 3. JAVASCRIPT (Blogger CDATA Sarmallı) -->
 <script type='text/javascript'>
 //<![CDATA[
 (function() {
