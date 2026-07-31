@@ -1,5 +1,5 @@
 <!-- ==================================================================== -->
-<!-- TABİRLY TAM UYUMLU CANLI ARAMA WİDGET'I                               -->
+<!-- TABİRLY TAM UYUMLU CANLI ARAMA WİDGET'I (ANLIK GÜNCELLEME DESTEKLİ)  -->
 <!-- ==================================================================== -->
 
 <!-- 1. ARAMA KUTUSU VE SONUÇ ALANI -->
@@ -46,8 +46,10 @@
 <script type='text/javascript'>
 //<![CDATA[
 (function() {
-  const PRIMARY_URL = "https://cdn.jsdelivr.net/gh/Tabirly/tabirly-data@main/search-index.json";
-  const FALLBACK_URL = "https://raw.githubusercontent.com/Tabirly/tabirly-data/main/search-index.json";
+  // Anlık önbellek yenileme (Cache-Busting) için saatlik versiyon parametresi
+  const hourlyVersion = Math.floor(Date.now() / 3600000);
+  const PRIMARY_URL = "https://raw.githubusercontent.com/Tabirly/tabirly-data/main/search-index.json?v=" + hourlyVersion;
+  const FALLBACK_URL = "https://cdn.jsdelivr.net/gh/Tabirly/tabirly-data@main/search-index.json?v=" + hourlyVersion;
   
   let searchData = [];
   let isLoaded = false;
